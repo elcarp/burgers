@@ -1,4 +1,5 @@
 defmodule Burgers.Restaurants.Burger do
+  @derive Jason.Encoder
 
   defstruct [:id, :name, :location]
 
