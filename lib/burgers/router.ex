@@ -5,7 +5,7 @@ defmodule Classroom.Router do
   plug :dispatch
 
   get "/burgers" do
-    burgers = Burgers.Restaurants.all_burgers()
+    burgers = Burgers.Restaurants.Burger.Store.all()
 
     conn
     |> put_resp_header("content-type", "application/json")
