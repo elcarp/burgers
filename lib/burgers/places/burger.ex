@@ -1,10 +1,10 @@
-defmodule Burgers.Burger do
+defmodule Burgers.Places.Burger do
   @derive Jason.Encoder
 
   defstruct [:id, :name, :location]
 
   defmodule Store do
-    use Burgers.Storage.Base, module: Burgers.Burger
+    use Burgers.Storage.Base, module: Burgers.Places.Burger
   end
 
   def new(%{name: name, location: location}) do

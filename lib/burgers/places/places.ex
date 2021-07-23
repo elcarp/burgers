@@ -1,5 +1,5 @@
-defmodule Burgers.Restaurant do
-  alias __MODULE__.Burgers
+defmodule Burgers.Places do
+  alias __MODULE__.Burger
 
   defdelegate new_burger(params),
     to: Burger,

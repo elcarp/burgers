@@ -1,11 +1,13 @@
-defmodule Classroom.Router do
+defmodule Burgers.Router do
   use Plug.Router
+    plug(Plug.Parsers, parsers: [:json], json_decoder: Jason)
+
 
   plug :match
   plug :dispatch
 
   get "/burgers" do
-    burgers = Burgers.Restaurants.Burger.Store.all()
+    burgers = Burgers.Places.Burger.Store.all()
 
     conn
     |> put_resp_header("content-type", "application/json")
