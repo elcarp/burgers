@@ -6,12 +6,13 @@ defmodule Burgers.Places.Burger do
   defmodule Store do
     use Burgers.Storage.Base, module: Burgers.Places.Burger
   end
+  #brand / branch/ food
 
   def new(%{name: name, location: location}) do
     %__MODULE__{
       id: UUID.uuid4(),
       name: name,
-      location: location,
+      location: location
     }
   end
 end
