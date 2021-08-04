@@ -6,7 +6,7 @@ defmodule Burgers.BurgerShop.Location do
   defmodule Store do
     use Burgers.Storage.Base, module: Burgers.BurgerShop.Location
   end
-#
+#many to many?
   def new(%{location: location, burger: burger}) do
     %__MODULE__{
       id: UUID.uuid4(),
