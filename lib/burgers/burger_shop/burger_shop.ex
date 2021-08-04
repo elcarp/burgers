@@ -1,4 +1,4 @@
-defmodule Burgers.Places do
+defmodule Burgers.BurgerShop do
   alias __MODULE__.Burger
 
   defdelegate new_burger(params),
