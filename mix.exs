@@ -16,7 +16,6 @@ defmodule Burgers.MixProject do
     [
       extra_applications: [:logger],
       mod: {Burgers.Application, []}
-
     ]
   end
 

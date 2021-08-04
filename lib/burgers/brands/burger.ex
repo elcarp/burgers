@@ -2,7 +2,7 @@ defmodule Burgers.BurgerShop.Burger do
   @derive Jason.Encoder
 
   defstruct [:id, :name, :location, :food, :branch]
-
+#add plurals
   defmodule Store do
     use Burgers.Storage.Base, module: Burgers.BurgerShop.Burger
   end
@@ -11,7 +11,7 @@ defmodule Burgers.BurgerShop.Burger do
     %__MODULE__{
       id: UUID.uuid4(),
       name: name,
-      location: location,
+      location: location.id,
       food: food,
       branch: branch
     }

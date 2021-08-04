@@ -60,7 +60,8 @@ defmodule Burgers.Storage.Base do
               %m{} ->
                 m == Burgers.Storage.Association
 
-              _ -> false
+              _ ->
+                false
             end
           end)
           |> Enum.map(fn {key, value} ->

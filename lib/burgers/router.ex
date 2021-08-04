@@ -1,10 +1,9 @@
 defmodule Burgers.Router do
   use Plug.Router
-    plug(Plug.Parsers, parsers: [:json], json_decoder: Jason)
+  plug(Plug.Parsers, parsers: [:json], json_decoder: Jason)
 
-
-  plug :match
-  plug :dispatch
+  plug(:match)
+  plug(:dispatch)
 
   get "/burgers" do
     burgers = Burgers.Places.Burger.Store.all()
