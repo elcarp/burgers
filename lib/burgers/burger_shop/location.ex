@@ -1,10 +1,10 @@
 alias Burgers.Storage.Association
 
-defmodule Burgers.Locations.Location do
+defmodule Burgers.BurgerShop.Location do
   defstruct [:id, :location, :burger, :lat, :long, :delivery]
 
   defmodule Store do
-    use Burgers.Storage.Base, module: Burgers.Locations.Location
+    use Burgers.Storage.Base, module: Burgers.BurgerShop.Location
   end
 #
   def new(%{location: location, burger: burger}) do
