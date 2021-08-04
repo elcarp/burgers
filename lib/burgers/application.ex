@@ -7,7 +7,7 @@ defmodule Burgers.Application do
 
   def start(_type, _args) do
     children = [
-      Burgers.BurgerShop.Burger.Store,
+      Burgers.Brands.Burger.Store,
       {Plug.Cowboy, scheme: :http, plug: Burgers.Router, options: [port: 4040]}
       # Starts a worker by calling: Burgers.Worker.start_link(arg)
       # {Burgers.Worker, arg}
