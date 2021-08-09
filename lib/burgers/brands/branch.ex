@@ -7,7 +7,6 @@ defmodule Burgers.Brands.Branch do
   end
 
   # many to many?
-
   def new(%{lat: lat, long: long, delivery: delivery, burger: burger}) do
     %__MODULE__{
       id: UUID.uuid4(),
