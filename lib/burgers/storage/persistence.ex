@@ -9,7 +9,7 @@ defmodule Burgers.Storage.Persistence do
         |> Enum.map(fn param ->
           param
           |> Enum.map(fn {key, value} ->
-            {String.to_existing_atom(key), value}
+            {String.to_atom(key), value}
           end)
           |> Enum.into(%{})
         end)
