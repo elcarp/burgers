@@ -12,7 +12,14 @@ defmodule Burgers.Storage.Base do
       def add(%unquote(module){id: resource_id} = resource) do
         case get(resource_id) do
           nil ->
-            Agent.update(__MODULE__, fn state -> [resource | state] end)
+            Agent.update(__MODULE__, fn state ->
+              new_state = [resource | state]
+
+              unquote(module)
+              |> Classroom.Storage.Persistence.persist(new_state)
+
+              new_state
+            end)
 
           %unquote(module){} ->
             {:error, :already_exists}

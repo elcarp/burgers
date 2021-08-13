@@ -17,7 +17,8 @@ defmodule Burgers.Storage.Persistence do
           struct(module, param)
         end)
 
-      {:error, _} -> []
+      {:error, _} ->
+        []
     end
   end
 
