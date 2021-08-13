@@ -5,8 +5,19 @@ defmodule Burgers.Storage.Base do
     quote do
       use Agent
 
-      def start_link(_) do
-        Agent.start_link(fn -> [] end, name: __MODULE__)
+      def start_link(file_path) do
+        file_path
+        |> File.read()
+        |> case do
+          {:ok, content} ->
+            Jason.decode!(content)
+
+          {:error, _} -> []
+        end
+
+        Agent.start_link(fn ->
+          []
+        end, name: __MODULE__)
       end
 
       def add(%unquote(module){id: resource_id} = resource) do
