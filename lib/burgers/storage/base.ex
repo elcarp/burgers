@@ -5,20 +5,10 @@ defmodule Burgers.Storage.Base do
     quote do
       use Agent
 
-      def start_link(file_path) do
-        file_path
-        |> File.read()
-        |> case do
-          {:ok, content} ->
-            Jason.decode!(content)
-
-          {:error, _} ->
-            []
-        end
-
+      def start_link(_options) do
         Agent.start_link(
           fn ->
-            []
+            Burgers.Storage.Persistence.load(unquote(module))
           end,
           name: __MODULE__
         )
@@ -32,7 +22,7 @@ defmodule Burgers.Storage.Base do
 
               unquote(module)
               |> Burgers.Storage.Persistence.persist(new_state)
-
+              #load data from the file into memory
               new_state
             end)
 
