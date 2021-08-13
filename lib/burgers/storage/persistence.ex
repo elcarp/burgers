@@ -33,7 +33,7 @@ defmodule Burgers.Storage.Persistence do
       |> String.split("/")
       |> List.last()
 
-    Application.app_dir(:classroom)
+    Application.app_dir(:burgers)
     |> Path.join("priv/stores/#{module_name}.json")
   end
 end

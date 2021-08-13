@@ -16,7 +16,7 @@ defmodule Burgers.Storage.Base do
               new_state = [resource | state]
 
               unquote(module)
-              |> Classroom.Storage.Persistence.persist(new_state)
+              |> Burgers.Storage.Persistence.persist(new_state)
 
               new_state
             end)
