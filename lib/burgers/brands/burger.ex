@@ -2,7 +2,7 @@ defmodule Burgers.Brands.Burger do
   @derive Jason.Encoder
 
   defstruct [:id, :name, :food, :branches]
-#add plurals
+
   defmodule Store do
     use Burgers.Storage.Base, module: Burgers.Brands.Burger
   end
