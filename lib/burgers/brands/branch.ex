@@ -6,7 +6,6 @@ defmodule Burgers.Brands.Branch do
     use Burgers.Storage.Base, module: Burgers.Brands.Branch
   end
 
-  # many to many?
   def new(%{lat: lat, long: long, delivery: delivery, burger: burger}) do
     %__MODULE__{
       id: UUID.uuid4(),
