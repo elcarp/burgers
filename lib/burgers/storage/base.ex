@@ -12,12 +12,16 @@ defmodule Burgers.Storage.Base do
           {:ok, content} ->
             Jason.decode!(content)
 
-          {:error, _} -> []
+          {:error, _} ->
+            []
         end
 
-        Agent.start_link(fn ->
-          []
-        end, name: __MODULE__)
+        Agent.start_link(
+          fn ->
+            []
+          end,
+          name: __MODULE__
+        )
       end
 
       def add(%unquote(module){id: resource_id} = resource) do
