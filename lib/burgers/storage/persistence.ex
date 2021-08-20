@@ -11,7 +11,7 @@ defmodule Burgers.Storage.Persistence do
           |> Enum.map(fn {key, value} ->
             value = maybe_parse_association(value)
 
-            {String.to_existing_atom(key), value}
+            {String.to_atom(key), value}
           end)
           |> Enum.into(%{})
         end)
