@@ -9,7 +9,9 @@ defmodule Burgers.Storage.Persistence do
         |> Enum.map(fn param ->
           param
           |> Enum.map(fn {key, value} ->
-            {String.to_atom(key), value}
+            value = maybe_parse_association(value)
+
+            {String.to_existing_atom(key), value}
           end)
           |> Enum.into(%{})
         end)
@@ -36,4 +38,17 @@ defmodule Burgers.Storage.Persistence do
     Application.app_dir(:burgers)
     |> Path.join("priv/stores/#{module_name}.json")
   end
+  defp maybe_parse_association(%{
+    "module" => module,
+    "resource_id" => resource_id
+  }) do
+    module = String.to_atom(module)
+
+    %Burgers.Storage.Association{
+      module: module,
+      resource_id: resource_id
+    }
+  end
+
+  defp maybe_parse_association(value), do: value
 end
