@@ -24,4 +24,9 @@ defmodule Burgers.Brands do
     defdelegate get_branch(branch_id),
     to: Burger.Store,
     as: :get
+
+    defdelegate update_burger(burger, params),
+    to: Burger.Store,
+    as: :update
+
 end
