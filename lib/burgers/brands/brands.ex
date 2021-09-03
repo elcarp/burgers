@@ -16,4 +16,12 @@ defmodule Burgers.Brands do
   defdelegate store_burger(burger),
     to: Burger.Store,
     as: :add
+
+  defdelegate store_branch(branch),
+    to: Burger.Store,
+    as: :add
+
+    defdelegate get_branch(branch_id),
+    to: Burger.Store,
+    as: :get
 end
