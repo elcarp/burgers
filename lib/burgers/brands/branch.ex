@@ -1,17 +1,15 @@
 defmodule Burgers.Brands.Branch do
-  defstruct [:id, :lat, :long, :delivery, :burger]
+  defstruct [:id, :name, :burger]
   alias Burgers.Storage.Association
 
   defmodule Store do
     use Burgers.Storage.Base, module: Burgers.Brands.Branch
   end
 
-  def new(%{lat: lat, long: long, delivery: delivery, burger: burger}) do
+  def new(%{name: name, burger: burger}) do
     %__MODULE__{
       id: UUID.uuid4(),
-      lat: lat,
-      long: long,
-      delivery: delivery,
+      name: name,
       burger: Association.new(burger)
     }
   end
