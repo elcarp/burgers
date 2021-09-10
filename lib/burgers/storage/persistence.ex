@@ -38,10 +38,11 @@ defmodule Burgers.Storage.Persistence do
     Application.app_dir(:burgers)
     |> Path.join("priv/stores/#{module_name}.json")
   end
+
   defp maybe_parse_association(%{
-    "module" => module,
-    "resource_id" => resource_id
-  }) do
+         "module" => module,
+         "resource_id" => resource_id
+       }) do
     module = String.to_atom(module)
 
     %Burgers.Storage.Association{
