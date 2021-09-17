@@ -27,13 +27,13 @@ defmodule Burgers.Brands do
     to: Branch,
     as: :new
 
-  defdelegate store_branch(branch),
-    to: Branch.Store,
-    as: :add
-
   defdelegate get_branch(branch_id),
     to: Branch.Store,
     as: :get
+
+  defdelegate store_branch(branch),
+    to: Branch.Store,
+    as: :add
 
   defdelegate all_branches,
     to: Branch.Store,
