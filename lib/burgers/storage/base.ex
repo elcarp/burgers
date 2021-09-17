@@ -23,7 +23,6 @@ defmodule Burgers.Storage.Base do
               unquote(module)
               |> Burgers.Storage.Persistence.persist(new_state)
 
-              # load data from the file into memory
               new_state
             end)
 

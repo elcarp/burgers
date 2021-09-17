@@ -5,6 +5,10 @@ defmodule Burgers.Brands do
     to: Burger,
     as: :new
 
+  defdelegate new_branch(params),
+    to: Branch,
+    as: :new
+
   defdelegate all_burgers,
     to: Burger.Store,
     as: :all
@@ -24,6 +28,10 @@ defmodule Burgers.Brands do
   defdelegate get_branch(branch_id),
     to: Branch.Store,
     as: :get
+
+  defdelegate all_branches,
+    to: Branch.Store,
+    as: :all
 
   defdelegate update_burger(burger, params),
     to: Burger.Store,
