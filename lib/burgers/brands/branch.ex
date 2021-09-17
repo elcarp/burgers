@@ -8,9 +8,7 @@ defmodule Burgers.Brands.Branch do
     use Burgers.Storage.Base, module: Burgers.Brands.Branch
   end
 
-  alias Burgers.Brands
-
-  def new(%Brands.Branch{} = burger, %{name: name}) do
+  def new(%{name: name, burger: burger}) do
     %__MODULE__{
       id: UUID.uuid4(),
       name: name,

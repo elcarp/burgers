@@ -19,7 +19,7 @@ defmodule Burgers.Brands do
 
   alias __MODULE__.Branch
 
-  defdelegate new_branch(burger, params),
+  defdelegate new_branch(params),
     to: Branch,
     as: :new
 
