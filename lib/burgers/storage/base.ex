@@ -72,8 +72,10 @@ defmodule Burgers.Storage.Base do
             {%Burgers.Storage.Association{resource_id: id}, value} when is_map(value) ->
               id == Map.get(value, :id)
 
-            {data, value} ->
-              data == value
+            {data, value} when is_list(data) ->
+              Enum.any?(data, fn d -> d == value end)
+
+              {data, value} -> data == value
           end
         end)
       end
