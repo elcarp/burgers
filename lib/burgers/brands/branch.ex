@@ -1,4 +1,6 @@
 defmodule Burgers.Brands.Branch do
+  @derive Jason.Encoder
+
   defstruct [:id, :name, :burger]
   alias Burgers.Storage.Association
 

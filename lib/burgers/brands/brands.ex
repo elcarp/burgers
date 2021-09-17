@@ -18,11 +18,11 @@ defmodule Burgers.Brands do
     as: :add
 
   defdelegate store_branch(branch),
-    to: Burger.Store,
+    to: Branch.Store,
     as: :add
 
   defdelegate get_branch(branch_id),
-    to: Burger.Store,
+    to: Branch.Store,
     as: :get
 
   defdelegate update_burger(burger, params),
