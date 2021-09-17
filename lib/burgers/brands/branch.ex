@@ -17,5 +17,4 @@ defmodule Burgers.Brands.Branch do
       burger: Association.new(burger)
     }
   end
-
 end
